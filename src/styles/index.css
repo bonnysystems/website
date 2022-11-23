@@ -3,7 +3,7 @@ main {
 }
 
 section:first-of-type > p {
-  margin-bottom: 30px;
+  margin: 4px 0px 30px;
 }
 
 h1 {
