@@ -5,6 +5,7 @@
 }
 
 * {
+  padding: 0;
   margin: 0;
 }
 
@@ -14,10 +15,14 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  font-family: Palatino, Charter, Helvetica;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: #ffffff;
 }
 
 img,
@@ -49,4 +54,37 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+/* positype.com/product/font/rhythm */
+@font-face {
+  font-family: "Rhythm";
+  src: url("/fonts/Rhythm/Rhythm-One.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rhythm-Solid";
+  src: url("/fonts/Rhythm/Rhythm-OneSolid.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RhythmTwo";
+  src: url("/fonts/Rhythm/Rhythm-Two.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RhythmTwo-Solid";
+  src: url("/fonts/Rhythm/Rhythm-TwoSolid.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }

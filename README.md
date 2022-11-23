@@ -1,5 +1,5 @@
-# website 💅
-
-public website for bonny systems
+# website 🎀
 
 [bonny.systems](https://bonny.systems)
+
+bonny systems' landing website

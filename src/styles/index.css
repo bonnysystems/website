@@ -1,0 +1,29 @@
+main {
+  max-width: 400px;
+}
+
+section:first-of-type > p {
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-family: "Rhythm";
+  font-weight: 500;
+}
+
+a {
+  color: var(--colors-primary);
+  outline-color: var(--colors-secondary);
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+.bonny-text {
+  color: var(--colors-primary);
+}
+
+.systems-text {
+  color: var(--colors-secondary);
+}

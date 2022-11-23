@@ -1,4 +1,8 @@
 ---
+import "../styles/variables.css";
+import "../styles/globals.css";
+import "../styles/index.css";
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -7,26 +11,42 @@ const currentYear = new Date().getFullYear();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/styles/globals.css" />
     <title>bonny systems</title>
   </head>
   <body>
-    <header class="hero">
+    <!-- <header>
       <a href="/">home</a>
-    </header>
-    <main class="wrapper">under construction</main>
-    <footer>
+    </header> -->
+    <main>
+      <h1>
+        <span class="bonny-text">bonny</span>
+        <span class="systems-text">systems</span>
+      </h1>
+      <section>
+        <p><em>a studio that builds <strong>beautiful software</strong></em></p>
+        <p>
+          <dfn title="beautiful software">beautiful software</dfn> is software that
+          from the inside out it feels lovely, resilient, quality, and accessible
+          to all.
+        </p>
+        <p>
+          we look to work with people who understand this, and together help
+          them achieve exactly the product of their dreams.
+        </p>
+        <p>
+          focusing on mobile apps &amp; websites/web applications, we have a
+          history of working with a variety of different markets/partners.
+        </p>
+        <p>
+          if you'd like to get in contact, <a
+            href="mailto:sammysamkough@gmail.com">shoot us an email</a>
+        </p>
+      </section>
+    </main>
+    <!-- <footer>
       &copy; {currentYear}
       <span style="color: #FF47FA">bonny</span>
       <span style="color: #00CC66">systems</span>
-    </footer>
-    <style>
-      body {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-      }
-    </style>
+    </footer> -->
   </body>
 </html>
