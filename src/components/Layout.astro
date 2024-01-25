@@ -1,0 +1,29 @@
+---
+import "../styles/globals.css";
+import "../styles/index.css";
+import "../styles/variables.css";
+
+const TITLE = "bonny systems";
+const DESCRIPTION = "a studio that builds beautiful software—inside and out";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={DESCRIPTION} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{TITLE}</title>
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={TITLE} />
+    <meta property="og:description" content={DESCRIPTION} />
+    <meta property="og:url" content="https://bonny.systems" />
+    <meta property="og:site_name" content={TITLE} />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
