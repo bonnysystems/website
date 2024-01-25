@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string;
+  setupFee: number;
+  monthlyCost: number;
+  description: string;
+  features: string[];
+}
+
+const { title, setupFee, monthlyCost, description, features } = Astro.props;
+---
+
+<div class="plan-container">
+  <h2>{title}</h2>
+  <h3>Setup: ${setupFee} ; Monthly: ${monthlyCost}</h3>
+  <em>{description}</em>
+  <hr />
+  <ul>
+    {features.map((feature: string) => <li>{feature}</li>)}
+  </ul>
+</div>
+
+<style>
+  .plan-container {
+    border: 1px solid black;
+    padding: 16px;
+  }
+
+  .plan-container h2 {
+    font-family: "Rhythm";
+    font-weight: 500;
+    color: var(--colors-primary);
+  }
+
+  .plan-container h3 {
+    color: var(--colors-secondary);
+  }
+
+  .plan-container hr {
+    margin: 10px 0;
+  }
+
+  .plan-container li {
+    list-style: none;
+    margin-bottom: 4px;
+  }
+</style>

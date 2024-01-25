@@ -1,5 +1,61 @@
 ---
 import Layout from "../components/Layout.astro";
+import PricingCard from "../components/PricingCard.astro";
+
+const PRICING_PLANS = [
+  {
+    title: "Basic",
+    setupFee: 20,
+    monthlyCost: 0,
+    description:
+      "For those who need barebones help with their domain and want to know what to improve.",
+    features: [
+      "setup of proper domain name",
+      "full audit of website (technical, SEO, accessibility)",
+    ],
+  },
+  {
+    title: "Fresh",
+    setupFee: 80,
+    monthlyCost: 15,
+    description:
+      "For those who would like a freshened up website with the essentials of a great site.",
+    features: [
+      "hosting and management of site",
+      "basic design",
+      "mobile responsiveness",
+      "video embeds",
+      "basic search engine optimization",
+      "24 / 7 support",
+    ],
+  },
+  {
+    title: "Modern",
+    setupFee: 250,
+    monthlyCost: 25,
+    description:
+      "For those who are looking for a sleek up-to-date website with modern CTA mechanisms.",
+    features: [
+      "updated design",
+      "forms",
+      "call to actions",
+      "social media integrations",
+      "blogs",
+    ],
+  },
+  {
+    title: "Pro",
+    setupFee: 500,
+    monthlyCost: 50,
+    description:
+      "For those who want more autonomy, access to data, and the most unique in design.",
+    features: [
+      "specialized design",
+      "advanced search engine optimization",
+      "admin dashboard access",
+    ],
+  },
+];
 ---
 
 <Layout>
@@ -7,4 +63,64 @@ import Layout from "../components/Layout.astro";
     <span class="bonny-text">pricing</span>
     <span class="systems-text">plans</span>
   </h1>
+  <p class="descriptor">
+    a list of all the pricing plans for website development
+  </p>
+  <div class="pricing-plans-container">
+    {PRICING_PLANS.map((props) => <PricingCard {...props} />)}
+  </div>
+  <div class="faq-container">
+    <h2>frequently asked questions</h2>
+    <h3>what is the difference between "setup" and the "monthly"?</h3>
+    <p>
+      "setup" is the "setup free", aka how much it'll cost to develop the
+      website
+    </p>
+    <p>
+      "monthly" is the "monthly cost", aka how much it'll cost to maintain the
+      website month-to-month
+    </p>
+    <p>
+      if you'd prefer to pay annually, bimonthly, or another model, we'd be more
+      than happy to accommodate
+    </p>
+    <h3>why does the basic have no monthly cost?</h3>
+    <p>
+      the basic does not have a monthly cost because it does not require us to
+      manage the website
+    </p>
+    <p>
+      after auditing and taking a look at your website, we can help move you off
+      to another free (or paid) platform that won't require us to manage it
+    </p>
+    <p>
+      fresh, modern, and pro plans are when we take control of the hosting of
+      the website for you and thus, require a monthly cost
+    </p>
+  </div>
 </Layout>
+
+<style>
+  .descriptor {
+    margin-bottom: 16px;
+  }
+  .pricing-plans-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  h2 {
+    font-family: "Rhythm";
+    font-weight: 500;
+    color: var(--colors-primary);
+  }
+
+  h3 {
+    color: var(--colors-secondary);
+  }
+
+  .faq-container p {
+    margin-bottom: 8px;
+  }
+</style>

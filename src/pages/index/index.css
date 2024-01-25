@@ -1,0 +1,7 @@
+main {
+  max-width: 400px;
+}
+
+section:first-of-type > p {
+  margin: 4px 0px 30px;
+}
