@@ -1,0 +1,40 @@
+---
+import Layout from "../components/Layout.astro";
+
+const WORKS = [
+  {
+    title: "united cleaning",
+    href: "https://unitedcleaningcorp.com",
+  },
+  {
+    title: "dream bar",
+    href: "https://dreambarnj.com",
+  },
+  {
+    title: "voice for humanity",
+    href: "https://voiceforhumanityproject.org",
+  },
+];
+---
+
+<Layout>
+  <h1>
+    <span class="bonny-text">work</span>
+    <span class="systems-text">projects</span>
+  </h1>
+  <ul>
+    {
+      WORKS.map(({ title, href }) => (
+        <li>
+          <a href={href}>{title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
+
+<style>
+  ul {
+    padding: 10px 30px;
+  }
+</style>
