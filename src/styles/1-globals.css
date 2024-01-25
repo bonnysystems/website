@@ -56,7 +56,7 @@ h6 {
   isolation: isolate;
 }
 
-/* positype.com/product/font/rhythm */
+/* https://positype.com/product/font/rhythm */
 @font-face {
   font-family: "Rhythm";
   src: url("/fonts/Rhythm/Rhythm-One.otf") format("opentype");
