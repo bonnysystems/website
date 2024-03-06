@@ -19,7 +19,7 @@ body {
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  font-family: Palatino, Charter, Helvetica;
+  font-family: Palatino, Charter, Helvetica, Seravek, Helvetica Neue, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background-color: #ffffff;
