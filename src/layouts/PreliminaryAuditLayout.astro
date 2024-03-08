@@ -74,15 +74,12 @@ const { frontmatter } = Astro.props;
       <div>
         <p>
           learn more about bonny systems:
-          <a href="https://bonny.systems/about" target="_blank"
-            >bonny.systems/about</a
-          >
+          <a href="/about">bonny.systems/about</a>
         </p>
         <p>
           why websites are necessary today:
-          <a
-            href="https://bonny.systems/blog/why-websites-matter"
-            target="_blank">bonny.systems/blog/why-websites-matter</a
+          <a href="/blog/why-websites-matter"
+            >bonny.systems/blog/why-websites-matter</a
           >
         </p>
       </div>
@@ -171,6 +168,7 @@ const { frontmatter } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
   }
   footer div h3 {
     font-family: "Rhythm";

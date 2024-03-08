@@ -1,11 +1,43 @@
 ---
-import Layout from "./Layout.astro";
+import PageLayout from "./PageLayout.astro";
 
 const { frontmatter } = Astro.props;
+const formattedPublishedDate = frontmatter.published_date.toLocaleDateString(
+  "eu",
+  {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }
+);
 ---
 
-<Layout>
-  <h1>{frontmatter.title}</h1>
-  <p>written by {frontmatter.author}</p>
-  <slot />
-</Layout>
+<PageLayout subtitle={frontmatter.title}>
+  <div class="container">
+    <div>
+      <p><strong>author</strong>: {frontmatter.author}</p>
+      <p>
+        <strong>published date</strong>: {formattedPublishedDate}
+      </p>
+      <p><em>{frontmatter.description}</em></p>
+    </div>
+    <hr />
+    <slot />
+  </div>
+</PageLayout>
+
+<style>
+  .container {
+    max-width: 600px;
+    font-size: 1.2em;
+  }
+  p {
+    margin-top: 10px;
+  }
+  hr {
+    margin: 10px 0;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+</style>
