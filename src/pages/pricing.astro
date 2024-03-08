@@ -1,6 +1,6 @@
 ---
-import Layout from "../components/Layout.astro";
 import PricingCard from "../components/PricingCard.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 
 const PRICING_PLANS = [
   {
@@ -58,11 +58,7 @@ const PRICING_PLANS = [
 ];
 ---
 
-<Layout>
-  <h1>
-    <span class="bonny-text">pricing</span>
-    <span class="systems-text">plans</span>
-  </h1>
+<PageLayout subtitle="pricing">
   <p class="descriptor">
     a list of all the pricing plans for website development
   </p>
@@ -98,7 +94,7 @@ const PRICING_PLANS = [
       the website for you and thus, require a monthly cost
     </p>
   </div>
-</Layout>
+</PageLayout>
 
 <style>
   .descriptor {

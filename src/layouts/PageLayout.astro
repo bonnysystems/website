@@ -1,0 +1,25 @@
+---
+import Layout from "./Layout.astro";
+
+const { subtitle } = Astro.props;
+---
+
+<Layout>
+  <h1>
+    <span class="bonny-text">bonny</span>
+    <span class="systems-text">systems</span>{
+      subtitle && (
+        <span>
+          | <span class="subtitle-text">{subtitle}</span>
+        </span>
+      )
+    }
+  </h1>
+  <slot />
+</Layout>
+
+<style>
+  .subtitle-text {
+    color: var(--colors-dark);
+  }
+</style>

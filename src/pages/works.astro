@@ -1,5 +1,5 @@
 ---
-import Layout from "../components/Layout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 
 const WORKS = [
   {
@@ -14,14 +14,15 @@ const WORKS = [
     title: "voice for humanity",
     href: "https://voiceforhumanityproject.org",
   },
+  {
+    title: "crescent care women's health",
+    href: "https://ccwh.netlify.app",
+  },
 ];
 ---
 
-<Layout>
-  <h1>
-    <span class="bonny-text">work</span>
-    <span class="systems-text">projects</span>
-  </h1>
+<PageLayout subtitle="works">
+  <p>these are all the websites bonny systems have worked on:</p>
   <ul>
     {
       WORKS.map(({ title, href }) => (
@@ -31,7 +32,7 @@ const WORKS = [
       ))
     }
   </ul>
-</Layout>
+</PageLayout>
 
 <style>
   ul {

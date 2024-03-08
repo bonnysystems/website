@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+const allPosts = await getCollection("posts");
+---
+
+<PageLayout subtitle="blog">
+  <p>these are all of bonny systems' blog posts:</p>
+  <ul>
+    {
+      allPosts.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</PageLayout>
+
+<style>
+  ul {
+    padding: 10px 20px;
+  }
+</style>

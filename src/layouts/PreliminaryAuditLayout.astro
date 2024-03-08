@@ -1,0 +1,184 @@
+---
+import PageLayout from "./PageLayout.astro";
+
+const SCORES = [
+  {
+    title: "design",
+    description:
+      "this score is based on the design of your total website structure, the purpose of each page and if they're being fulfilled, and more",
+  },
+  {
+    title: "performance",
+    description:
+      "this score is based on a variety of performance metrics, such as how long it takes your website to fully load, your largest image, etc.",
+  },
+  {
+    title: "accessibility",
+    description:
+      "this score is based on if your website meets certain web accessibility standards like having alternative text for your images, contrast ratios, etc.",
+  },
+  {
+    title: "seo",
+    description:
+      "this score is based on how a variety of on-page technical SEO criteria, based on how well a search engine can find your website",
+  },
+];
+
+function mapDesignScoreToClassName(score: number) {
+  let className = " ";
+  if (score > 0 && score <= 49) return (className += "red");
+  if (score > 49 && score <= 89) return (className += "orange");
+  return (className += "green");
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<PageLayout>
+  <div class="container">
+    <header>
+      <h2 class="header-text">preliminary audit</h2>
+      <h3>name: {frontmatter.name}</h3>
+      <h3>
+        website: <a href={`https://${frontmatter.website_url}`} target="_blank"
+          >{frontmatter.website_url}</a
+        >
+      </h3>
+    </header>
+    <div class="score-container">
+      {
+        Object.entries(frontmatter.scores.desktop).map(([key, value]) => (
+          <div class={`score${mapDesignScoreToClassName(value as number)}`}>
+            <div>
+              <h3>{value}</h3>
+            </div>
+            <p>
+              <h3>{key}</h3>
+            </p>
+          </div>
+        ))
+      }
+    </div>
+    <div class="text-container">
+      {
+        SCORES.map(({ title, description }) => (
+          <div>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </div>
+        ))
+      }
+    </div>
+    <hr />
+    <footer>
+      <div>
+        <p>
+          learn more about bonny systems:
+          <a href="https://bonny.systems/about" target="_blank"
+            >bonny.systems/about</a
+          >
+        </p>
+        <p>
+          why websites are necessary today:
+          <a
+            href="https://bonny.systems/blog/why-websites-matter"
+            target="_blank">bonny.systems/blog/why-websites-matter</a
+          >
+        </p>
+      </div>
+      <div>
+        <h3>
+          <span class="bonny-text">bonny</span>
+          <span class="systems-text">systems</span>
+        </h3>
+        <address>
+          <a href="tel:8622390100">862-239-0100</a>
+          <span>1545 Alps Road, Wayne NJ 07470</span>
+        </address>
+      </div>
+    </footer>
+  </div>
+</PageLayout>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 700px;
+  }
+  .header-text {
+    font-family: "Rhythm";
+    font-size: 1.8em;
+    font-weight: 500;
+    color: var(--colors-dark);
+  }
+  .score-container {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  .score {
+    max-width: 120px;
+    text-align: center;
+  }
+  .score div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    font-size: 2em;
+    border: 2px solid black;
+    border-radius: 50%;
+  }
+  .red {
+    color: rgb(208, 0, 0);
+  }
+  .red div {
+    border-color: rgb(208, 0, 0);
+  }
+  .orange {
+    color: rgb(255, 175, 25);
+  }
+  .orange div {
+    border-color: rgb(255, 175, 25);
+  }
+  .green {
+    color: var(--colors-secondary);
+  }
+  .green div {
+    border-color: var(--colors-secondary);
+  }
+  .score h3 {
+    font-size: 1.2em;
+  }
+  .text-container {
+    font-size: 1.2em;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1.1em;
+  }
+  footer div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  footer div:last-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer div h3 {
+    font-family: "Rhythm";
+    font-size: 1.8em;
+    font-weight: 500;
+  }
+  footer div address {
+    display: flex;
+    gap: 16px;
+  }
+</style>

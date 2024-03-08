@@ -19,3 +19,8 @@ a:hover {
 .systems-text {
   color: var(--colors-secondary);
 }
+
+.rhythm-text {
+  font-family: "Rhythm";
+  font-weight: 500;
+}
