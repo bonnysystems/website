@@ -15,7 +15,7 @@ export let PRICING_PLANS = {
     setupFee: 80,
     monthlyCost: 15,
     description:
-      "For those who would like a freshened up website with the essentials of a great site.",
+      "For those who would like a freshened up look with the essentials of a great site.",
     features: [
       "hosting and management of site",
       "basic design",
