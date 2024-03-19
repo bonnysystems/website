@@ -60,6 +60,7 @@ const plan = frontmatter.recommended_pricing_plan as keyof typeof PRICING_PLANS;
         <span class="bonny-text rhythm-text">{PRICING_PLANS[plan].title}</span>
         <span class="miniaturized-text">plan</span>
       </h2>
+      <br />
       <PricingCard {...PRICING_PLANS[plan]} />
       <br />
       <p>
@@ -111,6 +112,7 @@ const plan = frontmatter.recommended_pricing_plan as keyof typeof PRICING_PLANS;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .top-cta {
     border: 1px solid var(--colors-light);
@@ -199,6 +201,7 @@ const plan = frontmatter.recommended_pricing_plan as keyof typeof PRICING_PLANS;
   }
   footer div address {
     display: flex;
+    flex-wrap: wrap;
     gap: 16px;
   }
 </style>
