@@ -20,6 +20,7 @@ const auditsCollection = defineCollection({
   schema: z.object({
     name: z.string(),
     website_url: z.string(),
+    recommended_pricing_plan: z.string(),
     scores: z.object({
       mobile: z.object({
         design: z.number(),

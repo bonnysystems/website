@@ -1,28 +1,14 @@
 ---
+import PricingCard from "../components/PricingCard.astro";
+import { PRICING_PLANS } from "../constants/pricing";
 import PageLayout from "./PageLayout.astro";
 
-const SCORES = [
-  {
-    title: "design",
-    description:
-      "this score is based on the design of your total website structure, the purpose of each page and if they're being fulfilled, and more",
-  },
-  {
-    title: "performance",
-    description:
-      "this score is based on a variety of performance metrics, such as how long it takes your website to fully load, your largest image, etc.",
-  },
-  {
-    title: "accessibility",
-    description:
-      "this score is based on if your website meets certain web accessibility standards like having alternative text for your images, contrast ratios, etc.",
-  },
-  {
-    title: "seo",
-    description:
-      "this score is based on how a variety of on-page technical SEO criteria, based on how well a search engine can find your website",
-  },
-];
+PRICING_PLANS["fresh"].setupFee = 200;
+PRICING_PLANS["fresh"].monthlyCost = 25;
+PRICING_PLANS["modern"].setupFee = 400;
+PRICING_PLANS["modern"].monthlyCost = 50;
+PRICING_PLANS["pro"].setupFee = 800;
+PRICING_PLANS["pro"].monthlyCost = 75;
 
 function mapDesignScoreToClassName(score: number) {
   let className = " ";
@@ -31,19 +17,28 @@ function mapDesignScoreToClassName(score: number) {
   return (className += "green");
 }
 
+function capitalizeFirstLetter(word: string) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
 const { frontmatter } = Astro.props;
+const plan = frontmatter.recommended_pricing_plan as keyof typeof PRICING_PLANS;
 ---
 
 <PageLayout>
   <div class="container">
     <header>
-      <h2 class="header-text">preliminary audit</h2>
-      <h3>name: {frontmatter.name}</h3>
-      <h3>
-        website: <a href={`https://${frontmatter.website_url}`} target="_blank"
-          >{frontmatter.website_url}</a
-        >
-      </h3>
+      <div>
+        <h2 class="header-text">preliminary audit</h2>
+        <h3>name: {frontmatter.name}</h3>
+        <h3>
+          website: <a
+            href={`https://${frontmatter.website_url}`}
+            target="_blank">{frontmatter.website_url}</a
+          >
+        </h3>
+      </div>
+      <a class="top-cta" href="tel:8622390100">contact us</a>
     </header>
     <div class="score-container">
       {
@@ -60,27 +55,34 @@ const { frontmatter } = Astro.props;
       }
     </div>
     <div class="text-container">
-      {
-        SCORES.map(({ title, description }) => (
-          <div>
-            <h3>{title}</h3>
-            <p>{description}</p>
-          </div>
-        ))
-      }
+      <h2>
+        <span class="miniaturized-text">we recommended the</span>
+        <span class="bonny-text rhythm-text">{PRICING_PLANS[plan].title}</span>
+        <span class="miniaturized-text">plan</span>
+      </h2>
+      <PricingCard {...PRICING_PLANS[plan]} />
+      <br />
+      <p>
+        <strong class="enlarged-text"
+          ><a href="tel:8622390100">call us</a></strong
+        > to start the process of revamping your website today!
+      </p>
     </div>
     <hr />
     <footer>
       <div>
         <p>
-          learn more about bonny systems:
-          <a href="/about">bonny.systems/about</a>
-        </p>
-        <p>
-          why websites are necessary today:
+          why <strong>you</strong> should have a website:
           <a href="/blog/why-websites-matter"
             >bonny.systems/blog/why-websites-matter</a
           >
+        </p>
+        <p>
+          learn about bonny systems:
+          <a href="/about">bonny.systems/about</a>
+        </p>
+        <p>
+          how we score websites: <a href="/scoring">bonny.systems/scoring</a>
         </p>
       </div>
       <div>
@@ -104,6 +106,20 @@ const { frontmatter } = Astro.props;
     justify-content: space-between;
     gap: 24px;
     max-width: 700px;
+  }
+  header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .top-cta {
+    border: 1px solid var(--colors-light);
+    border-radius: 4px;
+    font-weight: 700;
+    padding: 8px;
+    font-size: 1.6em;
+    text-decoration: none;
+    background-color: oldlace;
   }
   .header-text {
     font-family: "Rhythm";
@@ -149,6 +165,12 @@ const { frontmatter } = Astro.props;
   }
   .score h3 {
     font-size: 1.2em;
+  }
+  .enlarged-text {
+    font-size: 1.2em;
+  }
+  .miniaturized-text {
+    font-size: 0.8em;
   }
   .text-container {
     font-size: 1.2em;
