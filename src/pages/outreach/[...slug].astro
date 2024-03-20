@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import PreliminaryAuditLayout from "../../../layouts/PreliminaryAuditLayout.astro";
+import OutreachLayout from "../../layouts/OutreachLayout.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("audits");
+  const blogEntries = await getCollection("outreach");
   return blogEntries.map((entry) => ({
     params: { slug: entry.id },
     props: { entry },
@@ -13,4 +13,4 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 ---
 
-<PreliminaryAuditLayout frontmatter={entry.data} />
+<OutreachLayout frontmatter={entry.data} />

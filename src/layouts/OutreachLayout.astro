@@ -17,10 +17,6 @@ function mapDesignScoreToClassName(score: number) {
   return (className += "green");
 }
 
-function capitalizeFirstLetter(word: string) {
-  return word.charAt(0).toUpperCase() + word.slice(1);
-}
-
 const { frontmatter } = Astro.props;
 const plan = frontmatter.recommended_pricing_plan as keyof typeof PRICING_PLANS;
 ---
@@ -29,44 +25,57 @@ const plan = frontmatter.recommended_pricing_plan as keyof typeof PRICING_PLANS;
   <div class="container">
     <header>
       <div>
-        <h2 class="header-text">preliminary audit</h2>
+        <h2 class="header-text">
+          {frontmatter.website_url ? "preliminary audit" : "plan evaluation"}
+        </h2>
         <h3>name: {frontmatter.name}</h3>
-        <h3>
-          website: <a
-            href={`https://${frontmatter.website_url}`}
-            target="_blank">{frontmatter.website_url}</a
-          >
-        </h3>
+        {
+          frontmatter.website_url && (
+            <h3>
+              website:{" "}
+              <a href={frontmatter.website_url} target="_blank">
+                {frontmatter.website_url}
+              </a>
+            </h3>
+          )
+        }
       </div>
       <a class="top-cta" href="tel:8622390100">contact us</a>
     </header>
-    <div class="score-container">
-      {
-        Object.entries(frontmatter.scores.desktop).map(([key, value]) => (
-          <div class={`score${mapDesignScoreToClassName(value as number)}`}>
-            <div>
-              <h3>{value}</h3>
-            </div>
-            <p>
-              <h3>{key}</h3>
-            </p>
+    {
+      frontmatter.scores && (
+        <div>
+          <div class="score-container">
+            {Object.entries(frontmatter.scores.desktop).map(([key, value]) => (
+              <div class={`score${mapDesignScoreToClassName(value as number)}`}>
+                <div>
+                  <h3>{value}</h3>
+                </div>
+                <p>
+                  <h3>{key}</h3>
+                </p>
+              </div>
+            ))}
           </div>
-        ))
-      }
-    </div>
+          <em style="font-size: 0.9em;float: right">
+            *scores are reflected for the website on desktop, not mobile
+          </em>
+        </div>
+      )
+    }
     <div class="text-container">
-      <h2>
+      <h2 style="padding-bottom: 8px">
         <span class="miniaturized-text">we recommended the</span>
         <span class="bonny-text rhythm-text">{PRICING_PLANS[plan].title}</span>
         <span class="miniaturized-text">plan</span>
       </h2>
-      <br />
       <PricingCard {...PRICING_PLANS[plan]} />
-      <br />
-      <p>
+      <p style="padding-top: 8px">
         <strong class="enlarged-text"
-          ><a href="tel:8622390100">call us</a></strong
-        > to start the process of revamping your website today!
+          ><a href="tel:8622390100">call us today</a></strong
+        > to start the process of {
+          frontmatter.website_url ? "revamping" : "creating"
+        } your website!
       </p>
     </div>
     <hr />
@@ -82,9 +91,18 @@ const plan = frontmatter.recommended_pricing_plan as keyof typeof PRICING_PLANS;
           learn about bonny systems:
           <a href="/about">bonny.systems/about</a>
         </p>
-        <p>
-          how we score websites: <a href="/scoring">bonny.systems/scoring</a>
-        </p>
+        {
+          frontmatter.website_url ? (
+            <p>
+              how we score websites:{" "}
+              <a href="/scoring">bonny.systems/scoring</a>
+            </p>
+          ) : (
+            <p>
+              websites worked on: <a href="/works">bonny.systems/works</a>
+            </p>
+          )
+        }
       </div>
       <div>
         <h3>
@@ -105,7 +123,7 @@ const plan = frontmatter.recommended_pricing_plan as keyof typeof PRICING_PLANS;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 24px;
+    gap: 12px;
     max-width: 700px;
   }
   header {

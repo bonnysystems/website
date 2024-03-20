@@ -1,0 +1,19 @@
+{
+  "name": "Phlebotomy School Of NJ",
+  "recommended_pricing_plan": "modern",
+  "website_url": "https://phlebotomynj.com/",
+  "scores": {
+    "mobile": {
+      "design": 40,
+      "performance": 28,
+      "accessibility": 82,
+      "seo": 100
+    },
+    "desktop": {
+      "design": 35,
+      "performance": 27,
+      "accessibility": 82,
+      "seo": 100
+    }
+  }
+}

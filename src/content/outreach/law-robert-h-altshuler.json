@@ -1,0 +1,19 @@
+{
+  "name": "The Law Firm of Robert H. Altshuler",
+  "recommended_pricing_plan": "modern",
+  "website_url": "https://www.lawrha.com",
+  "scores": {
+    "mobile": {
+      "design": 75,
+      "performance": 26,
+      "accessibility": 86,
+      "seo": 79
+    },
+    "desktop": {
+      "design": 70,
+      "performance": 61,
+      "accessibility": 86,
+      "seo": 75
+    }
+  }
+}

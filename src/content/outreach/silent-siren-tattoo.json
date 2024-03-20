@@ -1,6 +1,7 @@
 {
   "name": "Silent Siren Tattoo",
-  "website_url": "silentsirentattoo.com",
+  "recommended_pricing_plan": "fresh",
+  "website_url": "https://silentsirentattoo.com",
   "scores": {
     "mobile": {
       "design": 40,
@@ -14,6 +15,5 @@
       "accessibility": 89,
       "seo": 100
     }
-  },
-  "recommended_pricing_plan": "fresh"
+  }
 }

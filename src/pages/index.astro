@@ -1,4 +1,5 @@
 ---
+import { EMAIL } from "../constants/contact";
 import Layout from "../layouts/Layout.astro";
 import "../styles/index.css";
 ---
@@ -33,7 +34,7 @@ import "../styles/index.css";
       websites, mobile apps, &amp; IT help.
     </p>
     <p>
-      if you'd like to get in touch, <a href="mailto:sammy@bonny.systems"
+      if you'd like to get in touch, <a href=`mailto:${EMAIL}`
         >send us an email</a
       >
     </p>

@@ -1,0 +1,19 @@
+{
+  "name": "Love Your Look",
+  "recommended_pricing_plan": "modern",
+  "website_url": "https://www.loveyourlookbeautystudio.com",
+  "scores": {
+    "mobile": {
+      "design": 35,
+      "performance": 29,
+      "accessibility": 85,
+      "seo": 92
+    },
+    "desktop": {
+      "design": 40,
+      "performance": 80,
+      "accessibility": 90,
+      "seo": 92
+    }
+  }
+}

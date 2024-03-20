@@ -1,0 +1,19 @@
+{
+  "name": "DLA Realty & Management Co., LLC",
+  "recommended_pricing_plan": "modern",
+  "website_url": "http://www.dlarealty.com",
+  "scores": {
+    "mobile": {
+      "design": 75,
+      "performance": 30,
+      "accessibility": 81,
+      "seo": 82
+    },
+    "desktop": {
+      "design": 55,
+      "performance": 76,
+      "accessibility": 89,
+      "seo": 83
+    }
+  }
+}

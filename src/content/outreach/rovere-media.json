@@ -1,0 +1,19 @@
+{
+  "name": "Rovere Media",
+  "recommended_pricing_plan": "fresh",
+  "website_url": "https://roveremedia.com",
+  "scores": {
+    "mobile": {
+      "design": 66,
+      "performance": 29,
+      "accessibility": 70,
+      "seo": 79
+    },
+    "desktop": {
+      "design": 47,
+      "performance": 69,
+      "accessibility": 77,
+      "seo": 75
+    }
+  }
+}

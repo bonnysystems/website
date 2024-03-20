@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+const allPosts = await getCollection("outreach");
+console.log(allPosts);
+---
+
+<PageLayout subtitle="outreach">
+  <p>list of all of bonny systems' outreach:</p>
+  <ul>
+    {
+      allPosts.map((post) => (
+        <li>
+          <a href={`/outreach/${post.id}`}>{post.data.name}</a>
+          (website {post.data.website_url ? "redesign" : "creation"})
+        </li>
+      ))
+    }
+  </ul>
+</PageLayout>
+
+<style>
+  ul {
+    padding: 10px 20px;
+  }
+</style>

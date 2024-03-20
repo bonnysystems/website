@@ -1,0 +1,19 @@
+{
+  "name": "Painters Plus Corporation",
+  "recommended_pricing_plan": "fresh",
+  "website_url": "http://www.painterspluscorp.com/",
+  "scores": {
+    "mobile": {
+      "design": 10,
+      "performance": 54,
+      "accessibility": 87,
+      "seo": 54
+    },
+    "desktop": {
+      "design": 15,
+      "performance": 85,
+      "accessibility": 87,
+      "seo": 64
+    }
+  }
+}

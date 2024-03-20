@@ -138,11 +138,16 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		"audits": {
+		"outreach": {
+"diane-c-blau-dmd": {
+	id: "diane-c-blau-dmd";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
 "silent-siren-tattoo": {
 	id: "silent-siren-tattoo";
-  collection: "audits";
-  data: InferEntrySchema<"audits">
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
 };
 };
 

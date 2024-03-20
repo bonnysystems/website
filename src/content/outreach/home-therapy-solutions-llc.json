@@ -1,0 +1,19 @@
+{
+  "name": "Home Therapy Solutions LLC",
+  "recommended_pricing_plan": "fresh",
+  "website_url": "https://www.hometherapysolutionsllc.com",
+  "scores": {
+    "mobile": {
+      "design": 50,
+      "performance": 49,
+      "accessibility": 80,
+      "seo": 85
+    },
+    "desktop": {
+      "design": 57,
+      "performance": 80,
+      "accessibility": 80,
+      "seo": 73
+    }
+  }
+}

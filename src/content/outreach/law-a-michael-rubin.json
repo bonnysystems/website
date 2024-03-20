@@ -1,0 +1,19 @@
+{
+  "name": "The Law Offices of A. Michael Rubin",
+  "recommended_pricing_plan": "fresh",
+  "website_url": "http://www.amrubin.com",
+  "scores": {
+    "mobile": {
+      "design": 15,
+      "performance": 70,
+      "accessibility": 67,
+      "seo": 67
+    },
+    "desktop": {
+      "design": 30,
+      "performance": 70,
+      "accessibility": 67,
+      "seo": 80
+    }
+  }
+}
