@@ -1,17 +1,29 @@
 ---
 import { getCollection } from "astro:content";
 import PageLayout from "../../layouts/PageLayout.astro";
-const allPosts = await getCollection("outreach");
+const allEntities = await getCollection("outreach");
+
+function compare(a, b) {
+  if (a.data.name < b.data.name) {
+    return -1;
+  }
+  if (a.data.name > b.data.name) {
+    return 1;
+  }
+  return 0;
+}
+
+// console.log("all entities", allEntities);
 ---
 
 <PageLayout subtitle="outreach">
   <p>list of all of bonny systems' outreach:</p>
   <ul>
     {
-      allPosts.map((post) => (
+      allEntities.sort(compare).map((entity) => (
         <li>
-          <a href={`/outreach/${post.id}`}>{post.data.name}</a>
-          (website {post.data.website_url ? "redesign" : "creation"})
+          <a href={`/outreach/${entity.id}`}>{entity.data.name}</a>
+          (website {entity.data.website_url ? "redesign" : "creation"})
         </li>
       ))
     }

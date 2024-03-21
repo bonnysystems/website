@@ -139,13 +139,88 @@ declare module 'astro:content' {
 
 	type DataEntryMap = {
 		"outreach": {
-"diane-c-blau-dmd": {
-	id: "diane-c-blau-dmd";
+"34dq": {
+	id: "34dq";
   collection: "outreach";
   data: InferEntrySchema<"outreach">
 };
-"silent-siren-tattoo": {
-	id: "silent-siren-tattoo";
+"3q8n": {
+	id: "3q8n";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"4tww": {
+	id: "4tww";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"acrv": {
+	id: "acrv";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"bcwe": {
+	id: "bcwe";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"c2xe": {
+	id: "c2xe";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"djy9": {
+	id: "djy9";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"f2y6": {
+	id: "f2y6";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"f5qb": {
+	id: "f5qb";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"feiy": {
+	id: "feiy";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"gzu2": {
+	id: "gzu2";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"k7og": {
+	id: "k7og";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"kc51": {
+	id: "kc51";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"qpsp": {
+	id: "qpsp";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"r44f": {
+	id: "r44f";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"w0u8": {
+	id: "w0u8";
+  collection: "outreach";
+  data: InferEntrySchema<"outreach">
+};
+"xlae": {
+	id: "xlae";
   collection: "outreach";
   data: InferEntrySchema<"outreach">
 };
