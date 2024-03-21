@@ -68,4 +68,9 @@ const WORKS = [
     font-size: 1.2em;
     padding-top: 8px;
   }
+  @media (max-width: 768px) {
+    .cards-container {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
 </style>
