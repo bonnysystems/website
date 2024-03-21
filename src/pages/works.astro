@@ -3,39 +3,69 @@ import PageLayout from "../layouts/PageLayout.astro";
 
 const WORKS = [
   {
-    title: "united cleaning",
-    href: "https://unitedcleaningcorp.com",
-  },
-  {
-    title: "dream bar",
-    href: "https://dreambarnj.com",
+    title: "crescent care women's health",
+    href: "https://ccwh.netlify.app",
+    imageSrc: "ccwh.png",
   },
   {
     title: "voice for humanity",
     href: "https://voiceforhumanityproject.org",
+    imageSrc: "voice-for-humanity.png",
   },
   {
-    title: "crescent care women's health",
-    href: "https://ccwh.netlify.app",
+    title: "united cleaning",
+    href: "https://unitedcleaningcorp.com",
+    imageSrc: "united-cleaning.png",
+  },
+  {
+    title: "dream bar",
+    href: "https://dreambarnj.com",
+    imageSrc: "dream-bar.png",
   },
 ];
 ---
 
 <PageLayout subtitle="works">
-  <p>these are all the websites bonny systems have worked on:</p>
-  <ul>
-    {
-      WORKS.map(({ title, href }) => (
-        <li>
-          <a href={href}>{title}</a>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="container">
+    <p>these are all the websites bonny systems have worked on:</p>
+    <br />
+    <div class="cards-container">
+      {
+        WORKS.map(({ title, href, imageSrc }) => (
+          <a href={href}>
+            <figure>
+              <img
+                src={`/works/${imageSrc}`}
+                alt={`screenshot of ${title}'s website'`}
+              />
+              <figcaption>{title}'s website</figcaption>
+            </figure>
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </PageLayout>
 
 <style>
-  ul {
-    padding: 10px 30px;
+  .container {
+    max-width: 1200px;
+  }
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+  figure {
+    border: 2px solid var(--colors-primary);
+    padding: 16px;
+  }
+  figure img {
+    border: 2px solid var(--colors-light);
+  }
+  figure figcaption {
+    font-size: 1.2em;
+    padding-top: 8px;
   }
 </style>

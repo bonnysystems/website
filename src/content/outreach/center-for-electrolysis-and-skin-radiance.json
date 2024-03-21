@@ -1,0 +1,19 @@
+{
+  "name": "Center For Electrolysis and Skin Radiance",
+  "recommended_pricing_plan": "fresh",
+  "website_url": "https://www.skinradiancecenter.com",
+  "scores": {
+    "mobile": {
+      "design": 12,
+      "performance": 99,
+      "accessibility": 81,
+      "seo": 75
+    },
+    "desktop": {
+      "design": 24,
+      "performance": 100,
+      "accessibility": 81,
+      "seo": 90
+    }
+  }
+}
