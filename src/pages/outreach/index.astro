@@ -2,39 +2,38 @@
 import { getCollection } from "astro:content";
 import PageLayout from "../../layouts/PageLayout.astro";
 const allEntities = await getCollection("outreach");
-
-function compare(a, b) {
-  if (a.data.name < b.data.name) {
-    return -1;
-  }
-  if (a.data.name > b.data.name) {
-    return 1;
-  }
-  return 0;
-}
-
-function filter(entity) {
-  return !entity.data?.outreached_at;
-}
+const entitiesToOutreachTo = allEntities
+  .sort((a, b) => {
+    if (a.data.name < b.data.name) {
+      return -1;
+    }
+    if (a.data.name > b.data.name) {
+      return 1;
+    }
+    return 0;
+  })
+  .filter((entity) => {
+    return !entity.data?.outreached_at;
+  });
 ---
 
 <PageLayout subtitle="outreach">
   <div class="container">
-    <p>table that contains entities to outreach to:</p>
-    <table>
-      <thead>
-        <tr>
-          <th scope="col">name</th>
-          <th scope="col">slug</th>
-          <th scope="col">plan</th>
-          <th scope="col">service</th>
-        </tr>
-      </thead>
-      {
-        allEntities
-          .sort(compare)
-          .filter(filter)
-          .map((entity) => (
+    <p style="padding-bottom: 8px">
+      table that contains entities to outreach to:
+    </p>
+    {
+      entitiesToOutreachTo.length > 0 ? (
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">name</th>
+              <th scope="col">slug</th>
+              <th scope="col">plan</th>
+              <th scope="col">service</th>
+            </tr>
+          </thead>
+          {entitiesToOutreachTo.map((entity) => (
             <tr>
               <th>
                 <a href={`/outreach/${entity.id}`}>{entity.data.name}</a>
@@ -45,9 +44,12 @@ function filter(entity) {
                 website {entity.data.website_url ? "redesign" : "creation"}
               </td>
             </tr>
-          ))
-      }
-    </table>
+          ))}
+        </table>
+      ) : (
+        <h2>no entities to outreach to!</h2>
+      )
+    }
   </div>
 </PageLayout>
 
