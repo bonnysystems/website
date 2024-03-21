@@ -38,6 +38,7 @@ const outreachCollection = defineCollection({
         }),
       })
       .optional(),
+    outreached_at: z.date().optional(),
   }),
 });
 // Export a single `collections` object to register your collection(s)

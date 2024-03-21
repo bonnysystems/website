@@ -12,24 +12,58 @@ function compare(a, b) {
   }
   return 0;
 }
+
+function filter(entity) {
+  return !entity.data?.outreached_at;
+}
 ---
 
 <PageLayout subtitle="outreach">
-  <p>list of all of bonny systems' outreach:</p>
-  <ul>
-    {
-      allEntities.sort(compare).map((entity) => (
-        <li>
-          <a href={`/outreach/${entity.id}`}>{entity.data.name}</a>
-          (website {entity.data.website_url ? "redesign" : "creation"})
-        </li>
-      ))
-    }
-  </ul>
+  <div class="container">
+    <p>list of all of bonny systems' outreach:</p>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">name</th>
+          <th scope="col">slug</th>
+          <th scope="col">plan</th>
+          <th scope="col">service</th>
+        </tr>
+      </thead>
+      {
+        allEntities
+          .sort(compare)
+          .filter(filter)
+          .map((entity) => (
+            <tr>
+              <th>
+                <a href={`/outreach/${entity.id}`}>{entity.data.name}</a>
+              </th>
+              <td>/{entity.id}</td>
+              <td>{entity.data.recommended_pricing_plan}</td>
+              <td>
+                website {entity.data.website_url ? "redesign" : "creation"}
+              </td>
+            </tr>
+          ))
+      }
+    </table>
+  </div>
 </PageLayout>
 
 <style>
-  ul {
-    padding: 10px 20px;
+  .container {
+    padding-bottom: 32px;
+  }
+  table {
+    text-align: left;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 8px;
   }
 </style>
