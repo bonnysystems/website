@@ -18,7 +18,9 @@ const formattedPublishedDate = new Intl.DateTimeFormat("en-US", {
       <p><em>{frontmatter.description}</em></p>
     </div>
     <hr />
-    <slot />
+    <div class="content-container">
+      <slot />
+    </div>
   </div>
 </PageLayout>
 
@@ -26,6 +28,12 @@ const formattedPublishedDate = new Intl.DateTimeFormat("en-US", {
   .container {
     max-width: 600px;
     font-size: 1.2em;
+  }
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 40px;
   }
   p {
     margin-top: 10px;
