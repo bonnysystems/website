@@ -184,8 +184,8 @@ declare module 'astro:content' {
   collection: "outreach";
   data: InferEntrySchema<"outreach">
 };
-"feiy": {
-	id: "feiy";
+"fegy": {
+	id: "fegy";
   collection: "outreach";
   data: InferEntrySchema<"outreach">
 };
@@ -194,13 +194,13 @@ declare module 'astro:content' {
   collection: "outreach";
   data: InferEntrySchema<"outreach">
 };
-"k7og": {
-	id: "k7og";
+"k73g": {
+	id: "k73g";
   collection: "outreach";
   data: InferEntrySchema<"outreach">
 };
-"kc51": {
-	id: "kc51";
+"kc52": {
+	id: "kc52";
   collection: "outreach";
   data: InferEntrySchema<"outreach">
 };
@@ -214,13 +214,13 @@ declare module 'astro:content' {
   collection: "outreach";
   data: InferEntrySchema<"outreach">
 };
-"w0u8": {
-	id: "w0u8";
+"wbu8": {
+	id: "wbu8";
   collection: "outreach";
   data: InferEntrySchema<"outreach">
 };
-"xlae": {
-	id: "xlae";
+"x2ae": {
+	id: "x2ae";
   collection: "outreach";
   data: InferEntrySchema<"outreach">
 };
