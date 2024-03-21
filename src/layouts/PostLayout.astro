@@ -1,5 +1,5 @@
 ---
-import { formattedDate } from "../constants/blog";
+import { formattedDate } from "../constants/dates";
 import PageLayout from "./PageLayout.astro";
 
 const { frontmatter } = Astro.props;
@@ -43,3 +43,4 @@ const formattedPublishedDate = formattedDate(frontmatter.published_date);
     font-size: 1.8em;
   }
 </style>
+../constants/dates

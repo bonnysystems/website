@@ -1,72 +1,47 @@
 ---
 import { getCollection } from "astro:content";
+import OutreachTable from "../../components/OutreachTable.astro";
 import PageLayout from "../../layouts/PageLayout.astro";
 const allEntities = await getCollection("outreach");
-const entitiesToOutreachTo = allEntities
-  .sort((a, b) => {
-    if (a.data.name < b.data.name) {
-      return -1;
-    }
-    if (a.data.name > b.data.name) {
-      return 1;
-    }
-    return 0;
-  })
-  .filter((entity) => {
-    return !entity.data?.outreached_at;
-  });
+
+function compare(a, b) {
+  if (a.data.name < b.data.name) {
+    return -1;
+  }
+  if (a.data.name > b.data.name) {
+    return 1;
+  }
+  return 0;
+}
+
+const entitiesToOutreachTo = allEntities.sort(compare).filter((entity) => {
+  return !entity.data?.outreached_at;
+});
+const outreachedEntities = allEntities.sort(compare).filter((entity) => {
+  return entity.data?.outreached_at;
+});
 ---
 
 <PageLayout subtitle="outreach">
   <div class="container">
-    <p style="padding-bottom: 8px">
-      table that contains entities to outreach to:
-    </p>
-    {
-      entitiesToOutreachTo.length > 0 ? (
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">name</th>
-              <th scope="col">slug</th>
-              <th scope="col">plan</th>
-              <th scope="col">service</th>
-            </tr>
-          </thead>
-          {entitiesToOutreachTo.map((entity) => (
-            <tr>
-              <th>
-                <a href={`/outreach/${entity.id}`}>{entity.data.name}</a>
-              </th>
-              <td>/{entity.id}</td>
-              <td>{entity.data.recommended_pricing_plan}</td>
-              <td>
-                website {entity.data.website_url ? "redesign" : "creation"}
-              </td>
-            </tr>
-          ))}
-        </table>
-      ) : (
-        <h2>no entities to outreach to!</h2>
-      )
-    }
-    <!-- TODO: add a toggle button that showcases all outreached entities (or a separate page) -->
+    <details>
+      <summary>outreached entities</summary>
+      <OutreachTable hasOutreached entities={outreachedEntities} />
+    </details>
+    <p>table that contains entities to outreach to:</p>
+    <OutreachTable entities={entitiesToOutreachTo} />
   </div>
 </PageLayout>
 
 <style>
   .container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     padding-bottom: 32px;
   }
-  table {
-    text-align: left;
-  }
-
-  table,
-  th,
-  td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 8px;
+  summary {
+    text-wrap: nowrap;
+    width: min-content;
   }
 </style>

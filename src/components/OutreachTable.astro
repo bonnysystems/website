@@ -1,0 +1,48 @@
+---
+import { formattedDate } from "../constants/dates";
+
+const { entities, hasOutreached } = Astro.props;
+---
+
+{
+  entities.length > 0 ? (
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">name</th>
+          <th scope="col">slug</th>
+          <th scope="col">plan</th>
+          <th scope="col">service</th>
+          {hasOutreached && <th scope="col">outreached at</th>}
+        </tr>
+      </thead>
+      {entities.map((entity) => (
+        <tr>
+          <th>
+            <a href={`/outreach/${entity.id}`}>{entity.data.name}</a>
+          </th>
+          <td>/{entity.id}</td>
+          <td>{entity.data.recommended_pricing_plan}</td>
+          <td>website {entity.data.website_url ? "redesign" : "creation"}</td>
+          {hasOutreached && <td>{formattedDate(entity.data.outreached_at)}</td>}
+        </tr>
+      ))}
+    </table>
+  ) : (
+    <h2>no entities to outreach to!</h2>
+  )
+}
+
+<style>
+  table {
+    text-align: left;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+  }
+</style>
