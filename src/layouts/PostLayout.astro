@@ -1,11 +1,9 @@
 ---
+import { formattedDate } from "../constants/blog";
 import PageLayout from "./PageLayout.astro";
 
 const { frontmatter } = Astro.props;
-const date = new Date(frontmatter.published_date);
-const formattedPublishedDate = new Intl.DateTimeFormat("en-US", {
-  dateStyle: "full",
-}).format(date);
+const formattedPublishedDate = formattedDate(frontmatter.published_date);
 ---
 
 <PageLayout subtitle={frontmatter.title}>
