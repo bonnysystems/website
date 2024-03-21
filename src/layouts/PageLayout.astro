@@ -1,16 +1,16 @@
 ---
 import Layout from "./Layout.astro";
 
-const { subtitle } = Astro.props;
+const { subtitle, forceHideSubtitleText } = Astro.props;
 ---
 
-<Layout>
+<Layout subtitle={subtitle}>
   <h1>
     <a href="/"
       ><span class="bonny-text">bonny</span>
       <span class="systems-text">systems</span></a
     >{
-      subtitle && (
+      subtitle && !forceHideSubtitleText && (
         <span>
           | <span class="subtitle-text">{subtitle}</span>
         </span>

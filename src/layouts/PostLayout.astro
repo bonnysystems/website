@@ -2,14 +2,10 @@
 import PageLayout from "./PageLayout.astro";
 
 const { frontmatter } = Astro.props;
-const formattedPublishedDate = frontmatter.published_date.toLocaleDateString(
-  "eu",
-  {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }
-);
+const date = new Date(frontmatter.published_date);
+const formattedPublishedDate = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "full",
+}).format(date);
 ---
 
 <PageLayout subtitle={frontmatter.title}>

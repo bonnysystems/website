@@ -18,15 +18,16 @@ function mapDesignScoreToClassName(score: number) {
 }
 
 const { frontmatter } = Astro.props;
+const title = frontmatter.website_url ? "preliminary audit" : "plan evaluation";
 const plan = frontmatter.recommended_pricing_plan as keyof typeof PRICING_PLANS;
 ---
 
-<PageLayout>
+<PageLayout forceHideSubtitleText subtitle={`${title} for ${frontmatter.name}`}>
   <div class="container">
     <header>
       <div>
         <h2 class="header-text">
-          {frontmatter.website_url ? "preliminary audit" : "plan evaluation"}
+          {title}
         </h2>
         <h3>name: {frontmatter.name}</h3>
         {

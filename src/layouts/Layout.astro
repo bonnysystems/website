@@ -5,6 +5,8 @@ import "../styles/3-defaults.css";
 
 const TITLE = "bonny systems";
 const DESCRIPTION = "a studio that builds beautiful software—inside and out";
+
+const { subtitle } = Astro.props;
 ---
 
 <html lang="en">
@@ -13,7 +15,7 @@ const DESCRIPTION = "a studio that builds beautiful software—inside and out";
     <meta name="description" content={DESCRIPTION} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <title>{TITLE}</title>
+    <title>{TITLE}{subtitle && ` | ${subtitle}`}</title>
     <meta name="generator" content={Astro.generator} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={TITLE} />
