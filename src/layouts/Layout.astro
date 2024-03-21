@@ -7,7 +7,7 @@ const TITLE = "bonny systems";
 const DESCRIPTION = "a studio that builds beautiful software—inside and out";
 
 const { subtitle } = Astro.props;
-const title = `${TITLE}${subtitle && ` | ${subtitle}`}`;
+const title = `${TITLE}${subtitle ? ` | ${subtitle}` : ""}`;
 ---
 
 <html lang="en">
