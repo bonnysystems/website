@@ -1,0 +1,19 @@
+---
+import PageLayout from "./PageLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<PageLayout subtitle={frontmatter.project_name}>
+  <div class="container">
+    <p><strong>client</strong>: {frontmatter.client_name}</p>
+    <p><strong>description</strong>:<br />{frontmatter.description}</p>
+  </div>
+</PageLayout>
+
+<style>
+  .container {
+    max-width: 600px;
+    font-size: 1.2em;
+  }
+</style>
