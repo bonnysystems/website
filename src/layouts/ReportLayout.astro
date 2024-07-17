@@ -8,6 +8,12 @@ const { frontmatter } = Astro.props;
   <div class="container">
     <p><strong>client</strong>: {frontmatter.client_name}</p>
     <p><strong>description</strong>:<br />{frontmatter.description}</p>
+    <br />
+    <hr />
+    <br />
+    <div class="content-container">
+      <slot />
+    </div>
   </div>
 </PageLayout>
 
@@ -15,5 +21,9 @@ const { frontmatter } = Astro.props;
   .container {
     max-width: 600px;
     font-size: 1.2em;
+  }
+
+  ul {
+    margin-left: 1em;
   }
 </style>
