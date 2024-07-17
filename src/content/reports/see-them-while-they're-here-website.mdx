@@ -4,9 +4,9 @@ project_name: "See Them While They're Here Website"
 description: 'Website for Montage Montage''s debut album, "See Them While They''re Here".'
 ---
 
-import Report from "../../components/content/Report.astro";
+import ReportSlot from "../../components/content/ReportSlot.astro";
 
-<Report 
+<ReportSlot 
   goals={[
     "Allow people to listen to the album regardless of device, operating system, or browser",
     "Lyric functionality for every track that follows audio of track in realtime",
@@ -48,4 +48,5 @@ import Report from "../../components/content/Report.astro";
       hours: 10,
       definition: "Small details, fixing issues, easter eggs (i.e. linking to Montage Montage main website), etc.",
     },
-  ]} />
+  ]} 
+/>
