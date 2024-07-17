@@ -1,11 +1,40 @@
 ---
 const ITEMS = [
-  { item: "Structure", hours: 8 },
-  { item: "Content", hours: 7 },
-  { item: "Audio Controls", hours: 10 },
-  { item: "Lyrics", hours: 15 },
-  { item: "Aesthetics", hours: 10 },
-  { item: "Polish", hours: 10 },
+  {
+    item: "Structure",
+    hours: 8,
+    definition:
+      "How the website is structured, from the page layout to the horizontal scrolling",
+  },
+  {
+    item: "Content",
+    hours: 7,
+    definition:
+      "Actual content from the album title, to the track titles, to the liner notes",
+  },
+  {
+    item: "Audio Controls",
+    hours: 12.5,
+    definition:
+      "Playing, pausing, stopping, fast forwarding, reversing the audio—everything to do with the audio and it's controls",
+  },
+  {
+    item: "Lyrics",
+    hours: 15,
+    definition:
+      "Following lyrics while the audio is playing in realtime that follows the audio, even if being manipulated",
+  },
+  {
+    item: "Aesthetics",
+    hours: 12.5,
+    definition:
+      "Look and feel of the website, from the design to the feel of the scrolls",
+  },
+  {
+    item: "Polish",
+    hours: 10,
+    definition: "Small details, fixing issues, etc.",
+  },
 ];
 
 const SUM_OF_ITEMS_IN_HOURS = ITEMS.reduce((acc, curr) => acc + curr.hours, 0);
@@ -31,6 +60,7 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
       Lyric functionality for every track that follows audio of track in
       realtime
     </li>
+    <li>Details of the album such as liner notes, credits, etc.</li>
   </ul>
   <h2>Work</h2>
   <table>
@@ -60,7 +90,13 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
   <br />
   <h3>Definitions</h3>
   <ul>
-    {ITEMS.map(({ item }) => <li>{item}: ???</li>)}
+    {
+      ITEMS.map(({ item, definition }) => (
+        <li>
+          <strong>{item}</strong>: {definition}
+        </li>
+      ))
+    }
   </ul>
   <h2>Details</h2>
   <ul>
