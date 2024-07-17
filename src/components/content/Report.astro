@@ -1,43 +1,18 @@
 ---
-const ITEMS = [
-  {
-    item: "Structure",
-    hours: 8,
-    definition:
-      "How the website is structured, from the page layout to the horizontal scrolling",
-  },
-  {
-    item: "Content",
-    hours: 7,
-    definition:
-      "Actual content from the album title, to the track titles, to the liner notes",
-  },
-  {
-    item: "Audio Controls",
-    hours: 12.5,
-    definition:
-      "Playing, pausing, stopping, fast forwarding, reversing the audio—everything to do with the audio and it's controls",
-  },
-  {
-    item: "Lyrics",
-    hours: 15,
-    definition:
-      "Following lyrics while the audio is playing in realtime that follows the audio, even if being manipulated",
-  },
-  {
-    item: "Aesthetics",
-    hours: 12.5,
-    definition:
-      "Look and feel of the website, from the basic design elements such as colors and typography, to the feel of it such as the scrolls",
-  },
-  {
-    item: "Polish",
-    hours: 10,
-    definition: "Small details, fixing issues, etc.",
-  },
-];
+interface Item {
+  item: string;
+  hours: number;
+  definition: string;
+}
 
-const SUM_OF_ITEMS_IN_HOURS = ITEMS.reduce((acc, curr) => acc + curr.hours, 0);
+interface Props {
+  goals: string[];
+  items: Item[];
+}
+
+const { goals, items } = Astro.props;
+
+const SUM_OF_ITEMS_IN_HOURS = items.reduce((acc, curr) => acc + curr.hours, 0);
 const HOURLY_RATE = 80;
 const TOTAL_PRICE = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -62,15 +37,7 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
   </ul>
   <h2 id="goals">Goals</h2>
   <ul>
-    <li>
-      Allow people to listen to the album regardless of device, operating
-      system, or browser
-    </li>
-    <li>
-      Lyric functionality for every track that follows audio of track in
-      realtime
-    </li>
-    <li>Details of the album such as liner notes, credits, etc.</li>
+    {goals.map((goal) => <li>{goal}</li>)}
   </ul>
   <h2 id="work">Work</h2>
   <table>
@@ -82,7 +49,7 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
     </thead>
     <tbody>
       {
-        ITEMS.map(({ item, hours }) => (
+        items.map(({ item, hours }) => (
           <tr>
             <td>{item}</td>
             <td>{hours}</td>
@@ -101,7 +68,7 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
   <h3 id="definitions">Definitions</h3>
   <ul>
     {
-      ITEMS.map(({ item, definition }) => (
+      items.map(({ item, definition }) => (
         <li>
           <strong>{item}</strong>: {definition}
         </li>
