@@ -50,7 +50,17 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
 ---
 
 <div class="container">
-  <h2>Goals</h2>
+  <h2>Table of Contents</h2>
+  <ul>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#work">Work</a></li>
+    <ul>
+      <li><a href="#definitions">Definitions</a></li>
+    </ul>
+    <li><a href="#details">Details</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+  <h2 id="goals">Goals</h2>
   <ul>
     <li>
       Allow people to listen to the album regardless of device, operating
@@ -62,7 +72,7 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
     </li>
     <li>Details of the album such as liner notes, credits, etc.</li>
   </ul>
-  <h2>Work</h2>
+  <h2 id="work">Work</h2>
   <table>
     <thead>
       <tr>
@@ -88,7 +98,7 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
     </tfoot>
   </table>
   <br />
-  <h3>Definitions</h3>
+  <h3 id="definitions">Definitions</h3>
   <ul>
     {
       ITEMS.map(({ item, definition }) => (
@@ -98,7 +108,7 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
       ))
     }
   </ul>
-  <h2>Details</h2>
+  <h2 id="#details">Details</h2>
   <ul>
     <li>I can begin work on this once we agree to start</li>
     <li>Hours are determined based on work, our meetings, and inuition</li>
@@ -108,7 +118,7 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
       cross-device/operating-system/browser (which is factored into hours)
     </li>
   </ul>
-  <h2>Conclusion</h2>
+  <h2 id="conclusion">Conclusion</h2>
   <ul>
     <li>
       Given the provided items and hours, the total price is <strong
