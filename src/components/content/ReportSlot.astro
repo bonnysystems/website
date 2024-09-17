@@ -16,7 +16,7 @@ const SUM_OF_ITEMS_IN_HOURS = items.reduce((acc, curr) => acc + curr.hours, 0);
 const HOURLY_RATE = 80;
 const TOTAL_PRICE = new Intl.NumberFormat("en-US", {
   style: "currency",
-  currency: "USA",
+  currency: "USD",
   currencyDisplay: "narrowSymbol",
   maximumFractionDigits: 0,
   minimumFractionDigits: 0,
@@ -77,8 +77,8 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
   </ul>
   <h2 id="details">Details</h2>
   <ul>
-    <li>I can begin work on this once we agree to start</li>
-    <li>Hours are determined based on work, our meetings, and inuition</li>
+    <li>Work can begin once agreed to start</li>
+    <li>Hours above are based on expected work</li>
     <li>
       After completion of every item, there will be a quality assurance step,
       such as making sure things are working properly
@@ -88,8 +88,8 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
   <h2 id="conclusion">Conclusion</h2>
   <ul>
     <li>
-      Given the provided items and hours, the total price is <strong
-        >~{TOTAL_PRICE}</strong
+      Given the provided items and hours, the estimate is:<br /><strong
+        >{TOTAL_PRICE}</strong
       > with a timeline of <strong>~{TIMELINE_ESTIMATE_IN_WEEKS} weeks</strong>
     </li>
     <ul>
@@ -97,6 +97,10 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
         It is possible new items may come up, or old items be reduced / removed
         during the construction of the project, in which hours would be adjusted
         (thus changing the price and timeline)
+      </li>
+      <li>
+        Any adjustments would be communicated and agreed upon before going
+        further to make sure we're on the same page
       </li>
     </ul>
     <li>

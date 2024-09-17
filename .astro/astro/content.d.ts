@@ -156,7 +156,7 @@ declare module 'astro:content' {
   slug: "why-websites-matter";
   body: string;
   collection: "posts";
-  data: any
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 };
 "reports": {
@@ -165,14 +165,14 @@ declare module 'astro:content' {
   slug: "see-them-while-theyre-here-website";
   body: string;
   collection: "reports";
-  data: any
+  data: InferEntrySchema<"reports">
 } & { render(): Render[".mdx"] };
 "the-wes-label-seo.mdx": {
 	id: "the-wes-label-seo.mdx";
   slug: "the-wes-label-seo";
   body: string;
   collection: "reports";
-  data: any
+  data: InferEntrySchema<"reports">
 } & { render(): Render[".mdx"] };
 };
 
@@ -183,87 +183,87 @@ declare module 'astro:content' {
 "34dq": {
 	id: "34dq";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "3q8n": {
 	id: "3q8n";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "4tww": {
 	id: "4tww";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "acrv": {
 	id: "acrv";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "bcwe": {
 	id: "bcwe";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "c2xe": {
 	id: "c2xe";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "djy9": {
 	id: "djy9";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "f2y6": {
 	id: "f2y6";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "f5qb": {
 	id: "f5qb";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "fegy": {
 	id: "fegy";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "gzu2": {
 	id: "gzu2";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "k73g": {
 	id: "k73g";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "kc52": {
 	id: "kc52";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "qpsp": {
 	id: "qpsp";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "r44f": {
 	id: "r44f";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "wbu8": {
 	id: "wbu8";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 "x2ae": {
 	id: "x2ae";
   collection: "outreach";
-  data: any
+  data: InferEntrySchema<"outreach">
 };
 };
 
@@ -271,5 +271,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = never;
+	export type ContentConfig = typeof import("../../src/content/config.js");
 }
