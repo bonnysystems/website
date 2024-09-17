@@ -14,14 +14,17 @@ const { goals, items } = Astro.props;
 
 const SUM_OF_ITEMS_IN_HOURS = items.reduce((acc, curr) => acc + curr.hours, 0);
 const HOURLY_RATE = 80;
-const TOTAL_PRICE = new Intl.NumberFormat("en-US", {
+const TOTAL_PRICE = SUM_OF_ITEMS_IN_HOURS * HOURLY_RATE;
+const WORK_HOURS_PER_WEEK = 10;
+
+const FORMATTED_TOTAL_PRICE = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
   currencyDisplay: "narrowSymbol",
   maximumFractionDigits: 0,
   minimumFractionDigits: 0,
-}).format(SUM_OF_ITEMS_IN_HOURS * HOURLY_RATE);
-const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
+}).format(TOTAL_PRICE);
+const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / WORK_HOURS_PER_WEEK;
 ---
 
 <div class="container">
@@ -89,7 +92,7 @@ const TIMELINE_ESTIMATE_IN_WEEKS = SUM_OF_ITEMS_IN_HOURS / 10;
   <ul>
     <li>
       Given the provided items and hours, the estimate is:<br /><strong
-        >{TOTAL_PRICE}</strong
+        >{FORMATTED_TOTAL_PRICE}</strong
       > with a timeline of <strong>~{TIMELINE_ESTIMATE_IN_WEEKS} weeks</strong>
     </li>
     <ul>
