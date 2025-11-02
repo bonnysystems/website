@@ -1,11 +1,11 @@
 ---
 import Layout from "./Layout.astro";
 
-const { subtitle, forceHideSubtitleText } = Astro.props;
+const { subtitle, forceHideSubtitleText, hasLargerHeading } = Astro.props;
 ---
 
 <Layout subtitle={subtitle}>
-  <h1>
+  <h1 class:list={hasLargerHeading ? ["larger-heading"] : []}>
     <a href="/"
       ><span class="bonny-text">bonny</span>
       <span class="systems-text">systems</span></a
@@ -21,10 +21,13 @@ const { subtitle, forceHideSubtitleText } = Astro.props;
 </Layout>
 
 <style>
+  a {
+    text-decoration: none;
+  }
   .subtitle-text {
     color: var(--colors-dark);
   }
-  a {
-    text-decoration: none;
+  .larger-heading {
+    font-size: 3em;
   }
 </style>
